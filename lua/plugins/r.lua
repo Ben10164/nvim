@@ -20,6 +20,7 @@ return {
               width = { min = 20, max = 100 }, -- min and max width of the columns
             },
           })
+
           -- Workaround from https://github.com/folke/which-key.nvim/issues/514#issuecomment-1987286901
           wk.register({
             ["<localleader>"] = {
@@ -38,15 +39,7 @@ return {
           })
         end,
       },
-      pdfviewer = (function()
-        if vim.loop.os_uname().sysname:find("Windows", 1, true) then
-          return "open"
-        elseif vim.loop.os_uname().sysname:find("Darwin", 1, true) then
-          return "open"
-        else
-          return "xdg-open"
-        end
-      end)(),
+      pdfviewer = "open",
     },
   },
   {
