@@ -10,10 +10,10 @@ return {
           -- This function will be called at the FileType event
           -- of files supported by R.nvim. This is an
           -- opportunity to create mappings local to buffers.
-          vim.api.nvim_buf_set_keymap(0, "n", "<Enter>", "<Plug>RDSendLine", {})
-          vim.api.nvim_buf_set_keymap(0, "v", "<Enter>", "<Plug>RSendSelection", {})
+          vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine", { buffer = true })
+          vim.keymap.set("v", "<Enter>", "<Plug>RSendSelection", { buffer = true })
 
-          -- Increase the width of which-key to handle the r-nvim descriptions
+          -- Increase the width of which-key to handle the longer r-nvim descriptions
           local wk = require("which-key")
           wk.setup({
             layout = {
@@ -41,6 +41,10 @@ return {
       },
       pdfviewer = "open",
     },
+    config = function(_, opts)
+      require("r").setup(opts)
+      require("r.pdf.generic").open = vim.ui.open
+    end,
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -76,6 +80,7 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    optional = true,
     dependencies = { "R-nvim/cmp-r" },
     opts = function(_, opts)
       opts.sources = opts.sources or {}
