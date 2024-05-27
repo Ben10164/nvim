@@ -41,10 +41,6 @@ return {
       },
       pdfviewer = "open",
     },
-    config = function(_, opts)
-      require("r").setup(opts)
-      require("r.pdf.generic").open = vim.ui.open
-    end,
   },
   {
     "nvim-lualine/lualine.nvim",
