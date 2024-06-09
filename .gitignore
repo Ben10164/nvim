@@ -8,3 +8,4 @@ foo.*
 data
 .vscode
 .python-version
+.DS_Store
