@@ -1,13 +1,5 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      opts.highlight = opts.highlight or {} -- extend or instantiate highlights
-      opts.ensure_installed = vim.list_extend(opts.ensure_installed or {}, { "bibtex" }) -- add bibtex
-      opts.highlight.disable = vim.list_extend(opts.highlight.disable or {}, { "latex" }) -- disable highlight for latex
-    end,
-  },
-  {
     "lervag/vimtex",
     config = function()
       vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- this conflicts with the lsp hover
@@ -16,6 +8,14 @@ return {
     keys = {
       { "<localLeader>l", "", desc = "+vimtext" },
     },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      opts.highlight = opts.highlight or {} -- extend or instantiate highlights
+      opts.ensure_installed = vim.list_extend(opts.ensure_installed or {}, { "bibtex" }) -- add bibtex
+      opts.highlight.disable = vim.list_extend(opts.highlight.disable or {}, { "latex" }) -- disable highlight for latex
+    end,
   },
   {
     "neovim/nvim-lspconfig",
