@@ -46,6 +46,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
+    optional = true,
     opts = function(_, opts)
       local rstt = {
         { "-", "#aaaaaa" }, -- 1: ftplugin/* sourced, but nclientserver not started yet.
