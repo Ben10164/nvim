@@ -29,6 +29,7 @@ return {
               c = { name = "+(c)hunks", ["🚫"] = "which_key_ignore" },
               f = { name = "+(f)unctions", ["🚫"] = "which_key_ignore" },
               g = { name = "+(g)oto", ["🚫"] = "which_key_ignore" },
+              i = { name = "+(i)nstall", ["🚫"] = "which_key_ignore" },
               k = { name = "+(k)nit", ["🚫"] = "which_key_ignore" },
               p = { name = "+(p)aragraph", ["🚫"] = "which_key_ignore" },
               q = { name = "+(q)uarto", ["🚫"] = "which_key_ignore" },
