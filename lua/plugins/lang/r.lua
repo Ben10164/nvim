@@ -1,7 +1,7 @@
 return {
   {
     "R-nvim/R.nvim",
-    lazy = false,
+    ft = { "R", "Rmd" },
     opts = {
       -- Create a table with the options to be passed to setup()
       R_args = { "--quiet", "--no-save" },
