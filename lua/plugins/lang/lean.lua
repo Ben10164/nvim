@@ -1,6 +1,7 @@
 return {
   {
     "Julian/lean.nvim",
+    commit = 'b29cf86c0b304308add7acd7eb783c0ad3528815',
     event = { "BufReadPre *.lean", "BufNewFile *.lean" },
 
     config = function(_, opts)

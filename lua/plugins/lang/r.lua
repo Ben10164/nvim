@@ -2,6 +2,7 @@ return {
   {
     "R-nvim/R.nvim",
     ft = { "R", "Rmd" },
+    optional = true,
     opts = {
       -- Create a table with the options to be passed to setup()
       R_args = { "--quiet", "--no-save" },
@@ -41,49 +42,6 @@ return {
         end,
       },
       pdfviewer = "",
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "markdown", "markdown_inline", "r", "rnoweb" })
-      end
-    end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    optional = true,
-    dependencies = { "R-nvim/cmp-r" },
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-      table.insert(opts.sources, { name = "cmp_r" })
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        r_language_server = {
-          root_dir = function(fname)
-            return require("lspconfig.util").root_pattern("DESCRIPTION", "NAMESPACE", ".Rbuildignore")(fname)
-              or require("lspconfig.util").find_git_ancestor(fname)
-              or vim.loop.os_homedir()
-          end,
-        },
-      },
-    },
-  },
-  {
-    "nvim-neotest/neotest",
-    optional = true,
-    dependencies = {
-      "shunsambongi/neotest-testthat",
-    },
-    opts = {
-      adapters = {
-        ["neotest-testthat"] = {},
-      },
     },
   },
   {
